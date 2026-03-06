@@ -94,51 +94,6 @@ nav ul {
 
 /* --- 7. レスポンシブ設定（スマホ版） --- */
 @media (max-width: 768px) {
-    /* 他の設定は維持 */
-
-    .concept {
-        /* 上下の余白をしっかり確保 */
-        padding: 150px 20px 150px 20px;
-    }
-
-    .concept p {
-        /* 文字サイズを 1.1rem から 1.05rem に微調整（一行に収めるため） */
-        font-size: 1.05rem; 
-        line-height: 2.8;
-        letter-spacing: 0.05em; /* 文字間隔を少しだけタイトにして収まりを良くする */
-        
-        /* 指定した <br> 以外では極力改行させない魔法の指示 */
-        word-break: keep-all; 
-        display: inline-block; /* ブロックとして扱い、中身の改行をコントロールしやすくする */
-        text-align: center;
-        width: 100%;
-    }
-
-    header {
-        flex-direction: column;
-        padding: 20px;
-        gap: 20px;
-    }
-
-    .hero-cafe {
-        height: 50vh;
-    }
-
-    .hero-content h1 {
-        font-size: 1.5rem;
-        letter-spacing: 0.3em;
-    }
-
-    .hero-sub {
-        font-size: 0.85rem;
-        letter-spacing: 0.1em;
-        white-space: nowrap;
-    }
-
-    .menu-container {
-        flex-direction: column;
-        gap: 50px;
-    }
     /* --- 1. ナビゲーションを中央に配置 --- */
     header {
         flex-direction: column;
