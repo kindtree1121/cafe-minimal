@@ -102,13 +102,16 @@ nav ul {
     }
 
     .concept p {
-        /* 「大きく」かつ「画面に収まる」絶妙なサイズ */
-        font-size: 1.1rem; 
-        line-height: 2.5;
-        letter-spacing: 0.1em;
-        /* 文字の折り返しを禁止せず、指定した<br>を優先させる設定 */
+        /* 文字サイズを 1.1rem から 1.05rem に微調整（一行に収めるため） */
+        font-size: 1.05rem; 
+        line-height: 2.8;
+        letter-spacing: 0.05em; /* 文字間隔を少しだけタイトにして収まりを良くする */
+        
+        /* 指定した <br> 以外では極力改行させない魔法の指示 */
         word-break: keep-all; 
-        overflow-wrap: break-word;
+        display: inline-block; /* ブロックとして扱い、中身の改行をコントロールしやすくする */
+        text-align: center;
+        width: 100%;
     }
 
     header {
