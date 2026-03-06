@@ -139,4 +139,34 @@ nav ul {
         flex-direction: column;
         gap: 50px;
     }
+    /* --- 1. ナビゲーションを中央に配置 --- */
+    header {
+        flex-direction: column;
+        padding: 20px 0; /* 左右のパディングを無くして中央に寄せやすくする */
+        gap: 15px;
+    }
+
+    nav ul {
+        padding: 0;
+        justify-content: center; /* 項目を中央に寄せる */
+        gap: 25px; /* 項目間の距離をスマホ用に最適化 */
+    }
+
+    /* --- 2. キャッチコピーの改行とサイズ調整 --- */
+    .hero-content h1 {
+        font-size: 1.6rem; /* 1.5から少しだけ大きくして印象を強める */
+        line-height: 1.8;
+        letter-spacing: 0.2em;
+        margin: 0 auto 20px auto;
+        width: 90%; /* 画面端に当たりすぎないよう調整 */
+    }
+
+    /* --- 3. 前回のコンセプトの三段落を維持するための補強 --- */
+    .concept p {
+        font-size: 1.05rem;
+        line-height: 2.8;
+        word-break: keep-all; /* 単語の途中での改行を防ぐ */
+        display: inline-block;
+        width: 100%;
+    }
 }
