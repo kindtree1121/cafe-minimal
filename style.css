@@ -1,0 +1,139 @@
+/* --- 1. 全体設定 --- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", serif;
+    background-color: #fdfcf9;
+    color: #3e2723;
+    line-height: 2.0;
+}
+
+/* --- 2. ヘッダー --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 60px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    letter-spacing: 0.3em;
+    font-weight: bold;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+}
+
+/* --- 3. ヒーローセクション（右上から光） --- */
+.hero-cafe {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(225deg, #5d4037 0%, #3e2723 60%, #1b0000 100%);
+    color: #f5f5f5;
+    text-align: center;
+    box-shadow: inset 50px -50px 150px rgba(255,255,255,0.05);
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    letter-spacing: 0.5em;
+    margin-bottom: 30px;
+}
+
+/* --- 4. コンセプトセクション（PC版） --- */
+.concept {
+    /* 上下ともに300pxの広大な余白を確保 */
+    padding: 300px 20px 300px 20px; 
+    text-align: center;
+    max-width: 900px; /* 文字を大きくするため幅も少し広げる */
+    margin: 0 auto;
+}
+
+/* コンセプトの本文を大きく、印象的に */
+.concept p {
+    font-size: 1.8rem; /* 標準よりかなり大きく設定 */
+    line-height: 2.8;   /* 文字が大きくなった分、行間もさらに広げる */
+    letter-spacing: 0.2em; /* 文字同士のゆとり */
+    font-weight: 500;   /* 少しだけ太くして存在感を出す */
+}
+
+/* --- 5. メニューセクション（上の余白を少し調整） --- */
+.menu {
+    padding: 0 20px 100px; /* 上を0にして、conceptの下余白と繋げる */
+    text-align: center;
+}
+
+.menu-container {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.menu-item {
+    transition: transform 0.6s ease, opacity 0.6s ease;
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    transform: translateY(-10px);
+    opacity: 0.7;
+}
+
+/* --- 6. スマホ改行用の設定 --- */
+.sp-only {
+    display: none;
+}
+
+/* --- 7. レスポンシブ設定（スマホ版） --- */
+@media (max-width: 768px) {
+    /* 他の設定は維持 */
+
+    .concept {
+        /* 上下の余白をしっかり確保 */
+        padding: 150px 20px 150px 20px;
+    }
+
+    .concept p {
+        /* 「大きく」かつ「画面に収まる」絶妙なサイズ */
+        font-size: 1.1rem; 
+        line-height: 2.5;
+        letter-spacing: 0.1em;
+        /* 文字の折り返しを禁止せず、指定した<br>を優先させる設定 */
+        word-break: keep-all; 
+        overflow-wrap: break-word;
+    }
+
+    header {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .hero-cafe {
+        height: 50vh;
+    }
+
+    .hero-content h1 {
+        font-size: 1.5rem;
+        letter-spacing: 0.3em;
+    }
+
+    .hero-sub {
+        font-size: 0.85rem;
+        letter-spacing: 0.1em;
+        white-space: nowrap;
+    }
+
+    .menu-container {
+        flex-direction: column;
+        gap: 50px;
+    }
+}
