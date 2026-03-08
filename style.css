@@ -1,4 +1,8 @@
 /* --- 1. 全体設定 --- */
+html {
+    scroll-behavior: smooth; /* スルスル動く魔法 */
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -26,9 +30,22 @@ nav ul {
     display: flex;
     list-style: none;
     gap: 40px;
+    margin: 0;
+    padding: 0;
 }
 
-/* --- 3. ヒーローセクション（右上から光） --- */
+/* リンクの見た目を整える */
+nav ul li a {
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.3s;
+}
+
+nav ul li a:hover {
+    opacity: 0.5;
+}
+
+/* --- 3. ヒーローセクション --- */
 .hero-cafe {
     height: 70vh;
     display: flex;
@@ -37,35 +54,37 @@ nav ul {
     background: linear-gradient(225deg, #5d4037 0%, #3e2723 60%, #1b0000 100%);
     color: #f5f5f5;
     text-align: center;
-    box-shadow: inset 50px -50px 150px rgba(255,255,255,0.05);
 }
 
 .hero-content h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     letter-spacing: 0.5em;
-    margin-bottom: 30px;
+    font-weight: 300;
+    margin-bottom: 20px;
 }
 
-/* --- 4. コンセプトセクション（PC版） --- */
+/* --- 4. コンセプトセクション --- */
 .concept {
-    /* 上下ともに300pxの広大な余白を確保 */
-    padding: 300px 20px 300px 20px; 
+    padding: 150px 20px;
     text-align: center;
-    max-width: 900px; /* 文字を大きくするため幅も少し広げる */
-    margin: 0 auto;
 }
 
-/* コンセプトの本文を大きく、印象的に */
+.concept h2 {
+    font-size: 1.2rem;
+    letter-spacing: 0.4em;
+    margin-bottom: 60px;
+    opacity: 0.6;
+}
+
 .concept p {
-    font-size: 1.8rem; /* 標準よりかなり大きく設定 */
-    line-height: 2.8;   /* 文字が大きくなった分、行間もさらに広げる */
-    letter-spacing: 0.2em; /* 文字同士のゆとり */
-    font-weight: 500;   /* 少しだけ太くして存在感を出す */
+    font-size: 1.8rem;
+    line-height: 2.8;
+    letter-spacing: 0.2em;
 }
 
-/* --- 5. メニューセクション（上の余白を少し調整） --- */
+/* --- 5. メニューセクション --- */
 .menu {
-    padding: 0 20px 100px; /* 上を0にして、conceptの下余白と繋げる */
+    padding: 0 20px 100px;
     text-align: center;
 }
 
@@ -77,122 +96,53 @@ nav ul {
     margin: 0 auto;
 }
 
-.menu-item {
-    transition: transform 0.6s ease, opacity 0.6s ease;
-    cursor: pointer;
+/* --- 6. アクセスセクション --- */
+.access {
+    padding: 150px 20px;
+    background-color: #faf9f6;
+    text-align: center;
 }
 
-.menu-item:hover {
-    transform: translateY(-10px);
-    opacity: 0.7;
+.map-wrapper {
+    filter: grayscale(100%) contrast(0.8);
+    margin-bottom: 40px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* --- 6. スマホ改行用の設定 --- */
-.sp-only {
-    display: none;
-}
-
-/* --- 7. レスポンシブ設定（スマホ版） --- */
+/* --- 7. スマホ版レスポンシブ（ここが重要！） --- */
 @media (max-width: 768px) {
-    /* --- 1. ナビゲーションを中央に配置 --- */
+    .sp-only {
+        display: block;
+    }
+
     header {
         flex-direction: column;
-        padding: 30px 20px; /* 左右に少し余白を作り、ロゴとのバランスをとる */
+        padding: 30px 20px;
         gap: 20px;
     }
 
     nav ul {
-        padding: 0;
-        margin: 0;
-        justify-content: center;
-        gap: 30px; /* 項目間の距離を均等に */
+        gap: 30px;
     }
 
-    /* --- 2. キャッチコピーを「一行」に収める --- */
+    /* ヒーロー一行表示 */
     .hero-content h1 {
-        font-size: 1.25rem; /* 一行に収まる限界のサイズに調整 */
-        white-space: nowrap; /* 絶対に改行させない */
+        font-size: 1.25rem;
+        white-space: nowrap;
         letter-spacing: 0.15em;
-        line-height: 1.5;
-        width: 100%;
-        margin-bottom: 20px;
     }
-    
-    /* HTMLにある <br> を無効化して一行にする */
-    .hero-content h1 .sp-only {
-        display: none !important;
-    }
+    .hero-content h1 .sp-only { display: none !important; }
 
-    .hero-sub {
-        font-size: 0.8rem;
-        letter-spacing: 0.1em;
-    }
-
-    /* --- 3. コンセプトを「二行」に収める --- */
-    .concept {
-        padding: 120px 25px; /* 左右の余白を確保し、中央寄せを強調 */
-    }
-
+    /* コンセプト二行表示 */
     .concept p {
-        font-size: 0.95rem; /* 二行で収まるサイズに微調整 */
+        font-size: 0.95rem;
         line-height: 2.2;
-        letter-spacing: 0.05em;
-        text-align: center;
-        word-break: keep-all; /* 単語の途中での改行を防ぐ */
-        overflow-wrap: normal;
+        word-break: keep-all;
     }
+    .concept br.sp-only:nth-of-type(1) { display: block; }
+    .concept br.sp-only:nth-of-type(2) { display: none; }
 
-    /* コンセプト内の特定の場所（自分を取り戻す場所。の後）だけ改行を許可 */
-    /* index.htmlの最初の <br> だけを有効にし、二番目は隠します */
-    .concept br.sp-only:nth-of-type(1) {
-        display: block;
-    }
-    .concept br.sp-only:nth-of-type(2) {
-        display: none;
-    }
-
-    /* メニューの間隔もスマホ用に最適化 */
-    .menu-container {
-        flex-direction: column;
-        gap: 40px;
-    }
-}
-
-/* --- 6. アクセスセクション --- */
-.access {
-    padding: 150px 20px;
-    background-color: #faf9f6; /* わずかに色を変えてセクションを区切る */
-    text-align: center;
-}
-
-.access-container {
-    max-width: 1000px;
-    margin: 50px auto 0;
-}
-
-.map-wrapper {
-    filter: grayscale(100%) contrast(0.8) opacity(0.8); /* 地図をモノトーンにして世界観を統一 */
-    transition: filter 0.5s ease;
-    margin-bottom: 40px;
-}
-
-.map-wrapper:hover {
-    filter: grayscale(0%) contrast(1) opacity(1); /* ホバーした時だけ本来の色に戻す演出 */
-}
-
-.access-info {
-    font-size: 1.1rem;
-    line-height: 2.2;
-    letter-spacing: 0.1em;
-}
-
-/* スマホ対応 */
-@media (max-width: 768px) {
-    .access {
-        padding: 100px 20px;
-    }
-    
-    .map-wrapper iframe {
-        height: 300px; /* スマホでは高さを抑える */
-    }
+    .menu-container { flex-direction: column; gap: 40px; }
 }
