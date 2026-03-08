@@ -157,3 +157,42 @@ nav ul {
         gap: 40px;
     }
 }
+
+/* --- 6. アクセスセクション --- */
+.access {
+    padding: 150px 20px;
+    background-color: #faf9f6; /* わずかに色を変えてセクションを区切る */
+    text-align: center;
+}
+
+.access-container {
+    max-width: 1000px;
+    margin: 50px auto 0;
+}
+
+.map-wrapper {
+    filter: grayscale(100%) contrast(0.8) opacity(0.8); /* 地図をモノトーンにして世界観を統一 */
+    transition: filter 0.5s ease;
+    margin-bottom: 40px;
+}
+
+.map-wrapper:hover {
+    filter: grayscale(0%) contrast(1) opacity(1); /* ホバーした時だけ本来の色に戻す演出 */
+}
+
+.access-info {
+    font-size: 1.1rem;
+    line-height: 2.2;
+    letter-spacing: 0.1em;
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+    .access {
+        padding: 100px 20px;
+    }
+    
+    .map-wrapper iframe {
+        height: 300px; /* スマホでは高さを抑える */
+    }
+}
